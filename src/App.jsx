@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import ProductList from "./components/ProductList";
 
 function App(){
@@ -9,6 +9,10 @@ function App(){
       <Routes>
         <Route path="/" element={<ProductList />} />
       </Routes>
+
+      <nav>
+        <Link to="/"> HOME </Link>
+      </nav>
     </div>
   )
 }
