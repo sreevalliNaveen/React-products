@@ -1,3 +1,6 @@
+import { useState } from "react";
+import ProductItem from "./ProductItem";
+
 const products = [
   { id: 1, name: "Laptop" },
   { id: 2, name: "Phone" },
@@ -5,10 +8,23 @@ const products = [
 ];
 
 function ProductList() {
+  const [showProducts, setShowProducts] = useState(true);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  function handleSelect(name){
+    setSelectedProduct(name);
+  }
   return (
     <div>
-      {products.map((p)=>(
-        <div key={p.id}>{p.name} </div>
+      <button onClick={()=>setShowProducts(!showProducts)}>{!showProducts ? "Show" :"Hide"}</button>
+      {showProducts && products.map((product)=>(
+        <ProductItem 
+          key={product.id} 
+          name={product.name} 
+          isSelected={selectedProduct === product.name}
+          onSelect={handleSelect} 
+          disabled={!showProducts}
+        />
       ))}
     </div>
   );
