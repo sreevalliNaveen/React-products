@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, NavLink, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import ProductsLayout from "./pages/ProductsLayout";
 import ProductList from "./components/ProductList";
@@ -12,8 +12,8 @@ function App(){
      
 
       <nav>
-        <Link to="/"> Home </Link>| {" "}
-        <Link to="/products"> Products </Link>
+        <NavLink to="/" end> Home </NavLink>| {" "}
+        <NavLink  to="/products"> Products </NavLink >
       </nav>
       
         <Routes>
