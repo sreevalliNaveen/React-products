@@ -10,8 +10,6 @@ function ProductItem({name,isSelected, onSelect,disabled}){
                 cursor: disabled ? "not-allowed" : "pointer",
                 opacity: disabled ? 0.5 : 1
             }}>
-                {/* isSelected ? <p>{name}</p> : <></>
-                 */}
                  {isSelected && "👉 "} {name}
         </div>
     )

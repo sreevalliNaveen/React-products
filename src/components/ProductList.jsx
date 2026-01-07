@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ProductItem from "./ProductItem";
+import { Link } from "react-router-dom";
 
 const products = [
   { id: 1, name: "Laptop" },
@@ -18,13 +19,18 @@ function ProductList() {
     <div>
       <button onClick={()=>setShowProducts(!showProducts)}>{!showProducts ? "Show" :"Hide"}</button>
       {showProducts && products.map((product)=>(
-        <ProductItem 
-          key={product.id} 
-          name={product.name} 
-          isSelected={selectedProduct === product.name}
-          onSelect={handleSelect} 
-          disabled={!showProducts}
-        />
+        <Link 
+          key={product.id}
+          to={`/products/${product.id}`}
+          style={{ display: "block" }}>
+          <ProductItem 
+            key={product.id} 
+            name={product.name} 
+            isSelected={selectedProduct === product.name}
+            onSelect={handleSelect} 
+            disabled={!showProducts}
+          />
+        </Link>
       ))}
     </div>
   );
