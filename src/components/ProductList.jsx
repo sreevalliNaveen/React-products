@@ -8,9 +8,10 @@ function ProductList() {
     useFetch("https://fakestoreapi.com/products");
      if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
-  if (!products) return null;
-  
-  
+  if (!products || products.length === 0) {
+  return <p>No products available.</p>;
+}
+
   return (
     <div>
      { products.map((product)=>(
