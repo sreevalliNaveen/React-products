@@ -1,16 +1,8 @@
-function ProductItem({name,isSelected, onSelect,disabled}){
-    function handleClick(){
-            if(disabled) return;
-            onSelect(name);
-    }
+function ProductItem({product}){
+    console.log(product);
     return(
-        
-        <div onClick={handleClick}
-            style={{ 
-                cursor: disabled ? "not-allowed" : "pointer",
-                opacity: disabled ? 0.5 : 1
-            }}>
-                 {isSelected && "👉 "} {name}
+        <div key={product.id} display="flex">
+            <img width={'100px'} height={'100px'} url={product.image} />
         </div>
     )
 }
