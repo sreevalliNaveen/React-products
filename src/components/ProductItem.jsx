@@ -1,9 +1,12 @@
-function ProductItem({product}){
-    console.log(product);
-    return(
-        <div key={product.id} display="flex">
-            <img width={'100px'} height={'100px'} url={product.image} />
-        </div>
-    )
+import { memo } from "react";
+
+function ProductItem({ product }) {
+  return (
+    <div>
+      <h4>{product.title}</h4>
+      <p>₹{product.price}</p>
+    </div>
+  );
 }
-export default ProductItem;
+
+export default memo(ProductItem);
